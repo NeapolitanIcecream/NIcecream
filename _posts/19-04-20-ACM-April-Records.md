@@ -12,7 +12,7 @@ comments: True
 4. 优化一：后继状态只由一个前导状态得出，滚动求值。
 5. 优化二：数组中保存的信息只关心存在性（0/1），并且观察到每次推导都做大量重复工作（所有 1 位变化相同距离），故 Bitset 优化，移位相或维护 S 集合。复杂度 $O(N^2)$。
 
-```CPP
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
@@ -45,7 +45,7 @@ int main() {
 1. 暴力：Q(L, R)，遍历区间，O(N)；R(P, Col)，单点修改，O(1)。
 2. 分析：一维空间，一个信息（Bitset：颜色存在性），满足可加性（相或合并），单点修改，区间查询。线段树冲冲冲。复杂度 $O(N\log N)$，最坏复杂度 $O(N^2\log N)$。
 
-```CPP
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
