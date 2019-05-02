@@ -1,7 +1,10 @@
 ---
 layout: post
-title: ACM April Records
-comments: True
+title: "ACM April Records"
+description: "Monthly reports."
+date: 2019-04-20
+tags: [ACM, Algorithm]
+comments: true
 ---
 
 ## [[DP/生成函数] Loj 515「LibreOJ β Round #2」贪心只能过样例](https://loj.ac/problem/515)
@@ -240,4 +243,3 @@ int main() {
     return 0;
 }
 ```
-
