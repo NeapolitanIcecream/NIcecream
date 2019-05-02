@@ -32,13 +32,13 @@ int main() {
         }
         bs0 = bs1;
         bs1.reset();
-{%    }%}
+    }
     cout << bs0.count() << endl;
     return 0;
 }
 ```
 
-5. 接下来整一个生成函数。$S =\prod_{i=1}^n (x^{{a_i}^2} + x^{{(a_i + 1)}^2} + … + x^{{b_i}^2})$。预处理上标后全部 FFT，计算 S 的点值，然后 DFT。瓶颈是 FFT，复杂度 $O(N^2\log N)$。由于 DP 常数巨大，生成函数会更快。
+5. 接下来整一个生成函数。$S =\prod_{i=1}^n (x^{ {a_i}^2} + x^{ {(a_i + 1)}^2} + … + x^{ {b_i}^2})$。预处理上标后全部 FFT，计算 S 的点值，然后 DFT。瓶颈是 FFT，复杂度 $O(N^2\log N)$。由于 DP 常数巨大，生成函数会更快。
 
 ## [[线段树/树套树] Luogu P1903 [国家集训队]数颜色 / 维护队列](https://www.luogu.org/problemnew/show/P1903)
 
