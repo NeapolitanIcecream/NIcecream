@@ -32,7 +32,7 @@ int main() {
         }
         bs0 = bs1;
         bs1.reset();
-    }
+{%    }%}
     cout << bs0.count() << endl;
     return 0;
 }
