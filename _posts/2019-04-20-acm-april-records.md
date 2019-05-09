@@ -3,7 +3,7 @@ layout: post
 title: "ACM April Records"
 description: "Monthly reports."
 date: 2019-04-20
-tags: [ACM, Algorithm]
+tags: [ACM, Algorithm, DP, Generating Function, Data Structure]
 comments: true
 ---
 
