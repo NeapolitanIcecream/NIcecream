@@ -85,3 +85,50 @@ int main() {
 }
 ```
 
+## [[费用流] NOI 2012 美食节](https://zqlwmatt.github.io/JudgeOnline/2879.html)
+
+厨师行为的影响与一种类似时间的量度有关。观察单个厨师总等待时间的组成，注意到第 i 次做的菜对总等待时间贡献 `w[j] - i + 1` 次，其中 `w[j]` 表示第 j 个厨师做菜的总数。这是分层网络的特征。建图如下。
+
++ 为每道菜建点。建源点 S。连接 S 与每道菜，容量为 `p[i]`，费用为 0。这描述了每道菜做 `p[i]` 次这一条件。
++ 为每个厨师建点，一共建 n 层。连接菜 i 与第 j 层的所有厨师，容量为 1，费用为 `j * t[i][k]`，其中 k 表示第 k 个厨师。建汇点 T，连接所有层的所有厨师与 T，容量为 1，费用为 0。注意费用公式保证了厨师总会先完成低层数的菜。这**倒序**地描述了第 k 个厨师做的第 `w[k] - j + 1` 道菜为菜 i，尽管我们实际上还不知道 `w[k]`。
+
+```cpp
+#include <bits/extc++.h>
+#include <bits/stdc++.h>
+
+const int maxn = 40 + 5;
+const int maxm = 100 + 5;
+const int maxp = 800 + 5;
+int n, m, t[maxn][maxm], p[maxn], S, T;
+std::pair<int, int> ans;
+
+namespace PrimalDual {
+...
+}
+
+int main() {
+    scanf("%d%d", &n, &m);
+    S = n + n * m;
+    T = n + n * m + 1;
+    tot = n + n * m + 2;
+    for (int i = 0; i < n; i++)
+        scanf("%d", &p[i]);
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            scanf("%d", &t[i][j]);
+    for (int i = 0; i < n; i++) {
+        PrimalDual::addEdge(S, i, p[i], 0);
+        for (int j = 0; j < n; j++)
+            for (int k = 0; k < m; k++)
+                PrimalDual::addEdge(i, n + j * m + k, 1, (j + 1) * t[i][k]);
+    }
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            PrimalDual::addEdge(n + i * m + j, T, 1, 0);
+    ans = PrimalDual::minCostFlow(S, T, tot, maxp);
+    printf("%d", ans.second);
+    return 0;
+}
+```
+
+注意到题目有很短的和很少的有效增广路，这个数据规模虽然很大，但是时间可能不会耗费太多。如果还需要优化，可以魔改最短路算法，约束它能访问的层数；或者动态开点，仅当上一层同一点满流后才开下一层的对应点。
