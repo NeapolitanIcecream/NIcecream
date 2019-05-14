@@ -85,7 +85,7 @@ int main() {
 }
 ```
 
-## [[费用流] NOI 2012 美食节](https://zqlwmatt.github.io/JudgeOnline/2879.html)
+## [[费用流] NOI 2012 美食节](https://bzoj.nicecream.top/JudgeOnline/2879.html)
 
 厨师行为的影响与一种类似时间的量度有关。观察单个厨师总等待时间的组成，注意到第 i 次做的菜对总等待时间贡献 `w[j] - i + 1` 次，其中 `w[j]` 表示第 j 个厨师做菜的总数。这是分层网络的特征。建图如下。
 
@@ -132,3 +132,73 @@ int main() {
 ```
 
 注意到题目有很短的和很少的有效增广路，这个数据规模虽然很大，但是时间可能不会耗费太多。如果还需要优化，可以魔改最短路算法，约束它能访问的层数；或者动态开点，仅当上一层同一点满流后才开下一层的对应点。
+
+## [[DP] Luogu P4363 [九省联考2018]一双木棋chess](https://www.luogu.org/problemnew/show/P4363)
+
+状态稀疏的记忆化对抗搜索，设计一种编码方案指示状态即可，可以状压也可以进制哈希。状态为「除当前局面外的最优解」，「局面」指每行存在若干个棋子唯一指示的一种情况。边界条件为 mem[tar] = 0，tar 指示了棋子填满时的情况，这时除当前局面外的最优解为 0，因为双方都不能再落子。每次由除当前局面外的最优解和当前位置的棋子 Minimax 递归转移。
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int INF = 0x3f3f3f3f;
+const int MAXN = 10;
+const int MAXM = 10;
+int decimal, n, m, a[MAXN][MAXM], b[MAXN][MAXM], num[MAXN];
+unordered_map<long long, int> mem;
+
+inline long long encode() {
+    long long encoded = 0;
+    for (int i = 0; i < n; i++)
+        encoded = decimal * encoded + num[i];
+    return encoded;
+}
+
+inline void decode(long long secret) {
+    for (int i = n - 1; i >= 0; i--) {
+        num[i] = secret % decimal;
+        secret /= decimal;
+    }
+}
+
+int search(long long secret, bool first) {
+    if (mem.count(secret))
+        return mem[secret];
+    decode(secret);
+    int ans = first ? -INF : INF;
+    for (int i = 0; i < n; i++) {
+        if ((i == 0 || num[i] < num[i - 1]) && num[i] < m) {
+            long long tar;
+            num[i]++;
+            tar = encode();
+            ans = first ? max(ans, a[i][num[i] - 1] + search(tar, !first)) : min(ans, -b[i][num[i] - 1] +
+                                                                                      search(tar, !first));
+            num[i]--;
+        }
+    }
+    mem[secret] = ans;
+    return ans;
+}
+
+int main() {
+    int ans;
+    long long tar;
+    scanf("%d%d", &n, &m);
+    decimal = m + 1;
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            scanf("%d", &a[i][j]);
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            scanf("%d", &b[i][j]);
+    for (int i = 0; i < n; i++)
+        num[i] = m;
+    tar = encode();
+    mem[tar] = 0;
+    ans = search(0, true);
+    printf("%d\n", ans);
+    return 0;
+}
+```
+
