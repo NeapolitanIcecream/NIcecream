@@ -3,7 +3,7 @@ layout: post
 title: "ACM June Records"
 description: "Monthly reports."
 date: 2019-06-06
-tags: [ACM, Algorithms, Interactive]
+tags: [ACM, Algorithm, Interactive]
 comments: true
 ---
 
