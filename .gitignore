@@ -4,3 +4,6 @@ node_modules/*
 
 bak/
 .DS_Store
+web_server_demo
+hello.html
+ruver

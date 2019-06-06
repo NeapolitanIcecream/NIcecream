@@ -1,9 +1,9 @@
 ---
-layout: post
+slayout: post
 title: "ACM May Records"
 description: "Monthly reports."
 date: 2019-05-08
-tags: [ACM, Algorithm, Network Flow]
+tags: [ACM, Algorithm, Network Flow, DP]
 comments: true
 ---
 
