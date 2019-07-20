@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Summer vacation has been comming"
+title: "Summer vacation has been coming"
 description: "But wtf have I done?"
 date: 2019-07-20
 tags: [Life]
