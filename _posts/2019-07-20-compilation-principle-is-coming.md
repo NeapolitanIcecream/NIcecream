@@ -70,7 +70,7 @@ comments: true
 + 代碼生成器將中間表示映射到目標語言。
   + 如果目標語言是機器語言，代碼生成器需要為每個變量合理分配寄存器或內存位置。
 
-![](../images/compiler010201.png)
+![](https://nicecream.top/images/compiler010201.png)
 
 > 圖 1-7 中的 <60> 實際上為 <**number**, 4>。
 
