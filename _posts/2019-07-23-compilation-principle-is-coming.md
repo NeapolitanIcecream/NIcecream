@@ -144,7 +144,7 @@ comments: true
 
 > 例子：連續賦值 a = b = c。
 >
-> right -> letter = right | letter
+> right -> letter = right \| letter
 
 #### 運算符的優先級
 
@@ -158,5 +158,4 @@ comments: true
 >
 > term -> term * factor \| term / factor \| factor
 >
-> factor -> digit | (expr)
-
+> factor -> digit \| (expr)
