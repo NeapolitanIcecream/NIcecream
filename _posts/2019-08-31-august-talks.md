@@ -2,7 +2,7 @@
 layout: post
 title: "八月雜談匯總"
 description: "有點想試一下在校園網環境下 ARP 釣取校園網帳戶密碼，拿來做字典也是極好的。"
-date: 2019-08-08
+date: 2019-08-31
 tags: [Life, Information Security, Math]
 comments: true
 ---
