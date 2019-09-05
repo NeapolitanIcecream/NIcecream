@@ -2,7 +2,7 @@
 layout: post
 title: "九月雜談匯總（1）"
 description: "想成為植物。"
-date: 2019-09-01
+date: 2019-09-05
 tags: [Life, Math, CS]
 comments: true
 ---
