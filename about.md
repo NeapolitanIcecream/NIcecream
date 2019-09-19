@@ -15,4 +15,4 @@ A：我不是台灣人，不過我的家鄉離台灣很近，你可以早上跳�
 
 Q：我應該如何聯繫你？
 
-A：你可以發郵件到我的[學校](mailto:neopolitan@mail.ustc.edu.cn)和[社團郵箱](mailto:neopolitan@mail.ustc.edu.cn)。你也可以到 USTC LUG 的社團活動室找我。除了睡覺、吃飯、上課，我通常待在 LUG 活動室，或者隔壁的 ACM 研討室。你可以從我的[公開日曆](calendar.nicecream.top)了解到上述作息。
+A：你可以發郵件到我的[學校](mailto:neopolitan@mail.ustc.edu.cn)和[社團郵箱](mailto:neopolitan@mail.ustc.edu.cn)。你也可以到 USTC LUG 的社團活動室找我。除了睡覺、吃飯、上課，我通常待在 LUG 活動室，或者隔壁的 ACM 研討室。你可以從我的[公開日曆](https://calendar.nicecream.top)了解到上述作息。
