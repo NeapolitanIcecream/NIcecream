@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "九月雜談匯總（3）"
-description: ""
+description: "黑咖啡真難喝。"
 date: 2019-09-16
 tags: [Life, CS, Fictional Writing]
 comments: true
